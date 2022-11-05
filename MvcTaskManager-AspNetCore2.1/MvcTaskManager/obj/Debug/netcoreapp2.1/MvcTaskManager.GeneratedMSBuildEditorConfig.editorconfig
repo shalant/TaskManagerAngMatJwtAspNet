@@ -1,0 +1,3 @@
+is_global = true
+build_property.RootNamespace = MvcTaskManager
+build_property.ProjectDir = C:\Users\digdr\Documents\coding\TaskManagerAngMatJwtAspNet\MvcTaskManager-AspNetCore2.1\MvcTaskManager\
