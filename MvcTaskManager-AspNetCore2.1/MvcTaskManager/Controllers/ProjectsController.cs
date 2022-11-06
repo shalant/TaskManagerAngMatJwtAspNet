@@ -19,7 +19,7 @@ namespace MvcTaskManager.Controllers
         }
 
         [HttpGet]
-        [Route("api/projects/{searchby}/{searchtext}")]
+        [Route("api/projects/search/{searchby}/{searchtext}")]
         public List<Project> Search(string searchBy, string searchText)
         {
             TaskManagerDbContext db = new TaskManagerDbContext();
@@ -27,18 +27,14 @@ namespace MvcTaskManager.Controllers
             if (searchBy == "ProjectID")
                 projects = db.Projects.Where(temp => temp.ProjectID.ToString().Contains(searchText)).ToList();
             else if (searchBy == "ProjectName")
-                projects = db.Projects.Where(temp => temp.ProjectName.ToString().Contains(searchText)).ToList();
+                projects = db.Projects.Where(temp => temp.ProjectName.Contains(searchText)).ToList();
             if (searchBy == "DateOfStart")
                 projects = db.Projects.Where(temp => temp.DateOfStart.ToString().Contains(searchText)).ToList();
             if (searchBy == "TeamSize")
                 projects = db.Projects.Where(temp => temp.TeamSize.ToString().Contains(searchText)).ToList();
 
-
-
             return projects;
-
         }
-
 
         [HttpPost]
         [Route("api/projects")]
