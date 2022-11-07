@@ -15,14 +15,16 @@
         <div class="form-group form-row">
             <label for="drpSearchText" class="col-form-label col-3">Search Text</label>
             <div class="col-9">
-                <input type="text" class="form-control" id="txtSearchTest" name="SearchText" [(ngModel)]="searchText">
+                <div class="input-group">
+                    <input type="text" class="form-control" id="txtSearchTest" name="SearchText" [(ngModel)]="searchText">
                     <div class="input-group-append" (click)="onSearchClick()">
                         <span class="input-group-text"><i class="fa fa-search"></i></span>
                     </div>
+                </div>
             </div>
         </div>
     </div>
-    </div>
+
   <div class="col-8 mx-auto">
     <button class="btn btn-primary" data-toggle="modal" data-target="#newModal">Create Project</button>
   </div>
@@ -43,12 +45,13 @@
           <td>{{project.teamSize}}</td>
           <td>
             <button class="btn btn-info" (click)="onEditClick($event, i)" data-toggle="modal" data-target="#editModal">Edit</button>
-            <button class="btn btn-info" (click)="onDeleteClick($event, i)" data-toggle="modal" data-target="#deleteModal">Delete</button>
+            <button class="btn btn-warning" (click)="onDeleteClick($event, i)" data-toggle="modal" data-target="#deleteModal">Delete</button>
           </td>
         </tr>
       </tbody>
     </table>
   </div>
+</div>
 
 <form>
   <div class="modal" role="dialog" id="newModal">
@@ -59,7 +62,6 @@
           <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
         </div>
         <div class="modal-body">
-
           <div class="form-group row">
             <label for="txtNewProjectID" class="col-sm-4 col-form-label">Project ID</label>
             <div class="col-sm-8">
@@ -91,7 +93,6 @@
                 name="TeamSize" [(ngModel)]="newProject.teamSize">
             </div>
           </div>
-
         </div>
         <div class="modal-footer">
           <button class="btn btn-warning" data-dismiss="modal">Cancel</button>
